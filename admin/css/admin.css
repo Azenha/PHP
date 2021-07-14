@@ -1,0 +1,58 @@
+* {
+    margin: 0px;
+    padding: 0px; 
+    font-family: 'Fira Mono', monospace;
+
+}
+
+body{
+    background-color: #313131;  
+    box-sizing: border-box;
+}
+
+.tituloPainel {
+    color:#F2F2F2; 
+    
+}
+
+.logotipoPHPadmin {
+    width: 200px; 
+    margin-top: 10%; 
+    margin-bottom: 2%;
+
+}
+
+h1{text-align: center}
+
+.form-login{
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.inputadmin {
+    display: inline-block;
+    width: 100%;
+    border: solid 2px #8892BF;
+    border-radius: 8px; 
+    margin-bottom: 10px;
+    padding: 2%; 
+}
+
+.submitadmin {
+    font-weight: 700;
+    background-color: #8892BF;
+    border: solid 2px #4F5B93; 
+    border-radius: 30px; 
+    color:black; 
+    margin-top: 4%;
+    padding: 4%; 
+    width: 70%;
+    margin-left: 20%;
+}
+
+.capsuladoselementos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

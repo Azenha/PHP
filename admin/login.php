@@ -4,31 +4,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/admin.css">
+<link>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 	<title>Login</title>
-	<style type="text/css">
-		h1{text-align: center}
-		.form-login{
-			max-width: 250px;
-			margin: 0 auto;
-			border: solid 1px #333;
-			padding: 15px;
-		}
-		.form-login input{
-			display: inline-block;
-			width: 100%;
-			box-sizing: border-box;
-			margin-bottom: 10px;
-		}
-	</style>
+
 </head>
 <body>
-	<h1>Painel de Acesso</h1>
+	<div class='capsuladoselementos'> 
+	<img src="css/phplogo.svg" alt="logotipo PHP" class="logotipoPHPadmin" />
+	<h1 class='tituloPainel'>Painel de Acesso</h1>
 
 	<form action="" method="post" class="form-login">
-		<input type="email" required name="email" placeholder="Seu E-mail">
-		<input type="text" required name="senha" placeholder="Sua Senha">
-		<input type="submit" name="logar" value="Acessar">
+		<input type="email" required name="email" placeholder="Seu E-mail" class='inputadmin'>
+		<input type="text" required name="senha" placeholder="Sua Senha" class='inputadmin'>
+		<input type="submit" name="logar" value="Acessar" class='submitadmin'>
 	</form>
-
+<div> 
 </body>
 </html>

@@ -4,7 +4,8 @@ if (isset($_SESSION['ativa'])): ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Painel ADMIN</title>
+	<title class="tituloPainel"> Painel ADMIN</title>
+	
 </head>
 <body>
 	<h1>Área Administrativa</h1>
