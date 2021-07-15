@@ -3,20 +3,23 @@ if (isset($_SESSION['ativa'])): ?>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="css/admin.css">
+<link rel="stylesheet" type="text/css" href="css/usuarios.css">
 	<title>Painel ADMIN</title>
 </head>
 <body>
-	<h1>Área Administrativa</h1>
+<img src="css/phplogo.svg" alt="logotipo PHP" class="logo" />
+	<h1 class='admtitle'>Área Administrativa</h1>
 	<?php 
 		$tabela = "usuarios";
 		$where = "id = ".$_SESSION['id'];
 		$userLogado = resultado($conexao, $tabela, $where);		
 	?>
-	<h2>Bem vindo, <?php echo $userLogado['nome']; ?></h2>
+	<h2 class='admsecondtitle'>Bem vindo, <?php echo $userLogado['nome']; ?></h2>
 
 	<?php include "template/menu.php"; ?>
 
-	<hr>
+	<hr class='hradmin'>
 	<div>
 
 		<?php 
@@ -53,7 +56,7 @@ if (isset($_SESSION['ativa'])): ?>
 
 		<form method="post" enctype="multipart/form-data">
 			<fieldset>
-				<legend>Inserir novo Usuário</legend>
+				<legend class='legendadmin'>Inserir novo Usuário</legend>
 
 				<input type="hidden" name="id" value="<?php echo $usuario_id; ?>">
 
@@ -76,7 +79,7 @@ if (isset($_SESSION['ativa'])): ?>
 				<?php } ?>
 
 				<label for="imagem">Upload de imagem: </label>
-				<input type="file" id="imagem" name="imagem"><br>
+				<input class='inputimagem' type="file" id="imagem" name="imagem"><br>
 
 				<input type="submit" name="<?php echo $atualizarInserir; ?>" value="Salvar">
 
@@ -88,7 +91,8 @@ if (isset($_SESSION['ativa'])): ?>
 			insertUser($conexao);
 		}
 		?>
-		<table border="1">
+
+		<table class='tabelasadmin' border="1">
 			<thead>
 				<tr>
 					<th>Nome do Usuário</th>
@@ -111,9 +115,9 @@ if (isset($_SESSION['ativa'])): ?>
 							<?php if ($_SESSION['id'] == $usuario['id']) { ?>
 								Seu usuário
 							<?php } else { ?>							
-							<a href="usuario_delete.php?usuario_id=<?php echo $usuario['id']; ?>">Deletar</a>
+							<a class='linkinterno' href="usuario_delete.php?usuario_id=<?php echo $usuario['id']; ?>">Deletar</a>
 							<?php } ?>
-							 - <a href="usuarios.php?usuario_id=<?php echo $usuario['id']; ?>">Editar</a>
+							 - <a class='linkinterno' href="usuarios.php?usuario_id=<?php echo $usuario['id']; ?>">Editar</a>
 						</td>
 						<td><?php echo $usuario['administrador']; ?></td>
 						<td><img width="100px" src="imagens/avatar/<?php echo $usuario['avatar']; ?>" alt="image"></td>
