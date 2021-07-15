@@ -1,0 +1,78 @@
+.admtitle {
+    color:#F2F2F2; 
+    margin-top: 2%; 
+}
+
+.admsecondtitle {
+    color:#F2F2F2; 
+    padding: 1%; 
+}
+
+.linkmenu {
+    text-decoration:none;
+    color:#F2F2F2; 
+    cursor: pointer;
+
+
+}
+
+.logo {
+    width: 100px;
+    margin-left: 50%;
+    margin-top: 15px;  
+}
+
+.linkinterno {
+    text-decoration:none;
+    color:#8892BF;
+    cursor: pointer;
+
+}
+.linkinterno:hover {
+    color: #F2F2F2; 
+}
+
+.limenu {
+    padding: 1%; 
+}
+
+.hradmin {
+    height: 2px; 
+    background-color:  #f2f2f2; 
+    margin: 1% 0 1% 0; 
+
+}
+
+fieldset {
+    color:#F2F2F2;
+    padding: 5px; 
+    border-radius: 8px; 
+    margin-bottom: 1%;
+}
+
+.legendadmin {
+    color:#F2F2F2; 
+
+}
+
+input {
+    margin-bottom: 4px;
+    padding: 5px; 
+    border-radius: 8px; 
+}
+
+.inputimagem {
+    border-radius: 8px; 
+    background-color: #8892BF;
+    cursor: pointer; 
+}
+
+.tabelasadmin {
+    color:#F2F2F2; 
+    width: 100%; 
+ 
+}
+
+.tabelasadmin td {
+    padding: 3px;
+}
