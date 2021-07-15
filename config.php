@@ -142,6 +142,11 @@ function updateUser($conexao, $where){
 	$emailAtual = mysqli_fetch_assoc($executarBuscaEmail);
 	$valEmail = $emailAtual['email'];
 
+	$buscarAvatarlAtual = "SELECT avatar FROM `usuarios` WHERE id = ".$where;			
+	$executarBuscaAvatar = mysqli_query($conexao, $buscarAvatarlAtual);
+	$avatarAtual = mysqli_fetch_assoc($executarBuscaAvatar);
+	$valAvatar = $avatarAtual['avatar'];
+
 	$erros = array();
 	$nome = trim(mysqli_real_escape_string($conexao, $_POST['nome']));
 	$email = trim(mysqli_real_escape_string($conexao, $_POST['email']));
@@ -150,7 +155,7 @@ function updateUser($conexao, $where){
 	$repeteSenha = $_POST['repetesenha'];
 	$adminUsuario = trim(mysqli_real_escape_string($conexao, $_POST['administrador']));
 	$avatarImagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem'] : "";
-	$avatarNome = "";
+	$avatarNome = $avatarAtual['avatar'];
 
 	if ($senhaUsuario != $repeteSenha) {
 		$erro[] = "Senhas não conferem";
@@ -162,26 +167,26 @@ function updateUser($conexao, $where){
 	if ($vericaEmail > 0 OR !empty($erro)) {
 		echo "E-mail já cadastrado! Por favor Informe um novo e-mail.";
 		echo $mostraerro = !empty($erro) ? $erro[0] : "";
-		}else{
-			if(!empty($senhaUsuario)){
-				$query = "UPDATE `usuarios` SET nome='".$nome."', email='".$email."', senha='".sha1($senhaUsuario)."', data_registro='".$data."' administrador='".$adminUsuario."', avatar='".$avatarNome."' WHERE id =".$where;
-				}else{
-					$query = "UPDATE `usuarios` SET nome='".$nome."', email='".$email."', data_registro='".$data."' administrador='".$adminUsuario."', avatar='".$avatarNome."' WHERE id =".$where;
-				}
-				if (!empty($where)) {
-					$executar = mysqli_query($conexao, $query);
-				}				
-					if ($executar) {
-					echo "Usuário Atualizado com sucesso";
-					//inserir imagem
-					if (!empty($avatarImagem)) {
-						upload($avatarImagem, "imagens/avatar/");
-						$avatarNome = $_FILES['imagem']['name'];
-					}
-				} else{
-					echo "Erro ao Atualizar".$query;
-				}
+	}else{
+		//inserir imagem
+		if (!empty($avatarImagem)) {
+			upload($avatarImagem, "imagens/avatar/");
+			$avatarNome = $_FILES['imagem']['name'];
 		}
+		if(!empty($senhaUsuario)){
+			$query = "UPDATE `usuarios` SET nome='".$nome."', email='".$email."', senha='".sha1($senhaUsuario)."', data_registro='".$data."', administrador='".$adminUsuario."', avatar='".$avatarNome."' WHERE id =".$where;
+		}else{
+			$query = "UPDATE `usuarios` SET nome='".$nome."', email='".$email."', data_registro='".$data."', administrador='".$adminUsuario."', avatar='".$avatarNome."' WHERE id =".$where;
+		}
+		if (!empty($where)) {
+			$executar = mysqli_query($conexao, $query);
+		}				
+			if ($executar) {
+			echo "Usuário Atualizado com sucesso";
+			} else{
+				echo "Erro ao Atualizar ".$query;
+		}
+	}
 }
 function updatePage($conexao, $where){
 	$id = $_POST['id'];
