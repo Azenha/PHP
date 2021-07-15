@@ -78,12 +78,12 @@ function insertUser($conexao){
 	$repeteSenha = sha1($_POST['repetesenha']);
 	$adminUsuario = trim(mysqli_real_escape_string($conexao, $_POST['administrador']));
 	// $avatarUsuario = trim(mysqli_real_escape_string($conexao, $_POST['avatar']));
-	$avatarUsuario = !empty($_FILES['avatar']['name']) ? $_FILES['avatar'] : "";
+	$avatarImagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem'] : "";
 	$avatarNome = "";
 	//inserir imagem
-	if (!empty($avatarUsuario)) {
-		upload($avatarUsuario, "upload/avatar/");
-		$avatarNome = $_FILES['avatar']['name'];
+	if (!empty($avatarImagem)) {
+		upload($avatarImagem, "imagens/avatar/");
+		$avatarNome = $_FILES['imagem']['name'];
 	}
 	if($senhaUsuario == $repeteSenha){
 		//verifica o email enviado no formulário
@@ -94,7 +94,7 @@ function insertUser($conexao){
 			echo "E-mail já cadastrado! Por favor Informe um novo e-mail.";
 		} else {			
 			//Inseri no BD
-			$query = "INSERT INTO `usuarios` (nome, email, senha, data_registro, administrador, avatar) VALUES ('".$nomeUsuario."', '".$emailUsuario."', '".$senhaUsuario."', NOW(), '".$adminUsuario."', '".$avatarUsuario."' ) ";
+			$query = "INSERT INTO `usuarios` (nome, email, senha, data_registro, administrador, avatar) VALUES ('".$nomeUsuario."', '".$emailUsuario."', '".$senhaUsuario."', NOW(), '".$adminUsuario."', '".$avatarNome."' ) ";
 			$executar = mysqli_query($conexao, $query);
 			
 			if ($executar) {
@@ -151,12 +151,12 @@ function updateUser($conexao, $where){
 	$repeteSenha = $_POST['repetesenha'];
 	$adminUsuario = trim(mysqli_real_escape_string($conexao, $_POST['administrador']));
 	// $avatarUsuario = trim(mysqli_real_escape_string($conexao, $_POST['avatar']));
-	$avatarUsuario = !empty($_FILES['avatar']['name']) ? $_FILES['avatar'] : "";
-	$nomeImagem = "";
+	$avatarImagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem'] : "";
+	$avatarNome = "";
 	//inserir imagem
-	if (!empty($avatarUsuario)) {
-		upload($avatarUsuario, "upload/avatar/");
-		$nomeImagem = $_FILES['avatar']['name'];
+	if (!empty($avatarImagem)) {
+		upload($avatarImagem, "imagens/avatar/");
+		$avatarNome = $_FILES['imagem']['name'];
 	}
 
 	if ($senhaUsuario != $repeteSenha) {
@@ -171,9 +171,9 @@ function updateUser($conexao, $where){
 		echo $mostraerro = !empty($erro) ? $erro[0] : "";
 		}else{
 			if(!empty($senhaUsuario)){
-					$query = "UPDATE `usuarios` SET nome='".$nome."', email='".$email."', senha='".sha1($senhaUsuario)."', data_registro='".$data."' administrador='".$adminUsuario."', avatar='".$avatarUsuario."' WHERE id =".$where;
+					$query = "UPDATE `usuarios` SET nome='".$nome."', email='".$email."', senha='".sha1($senhaUsuario)."', data_registro='".$data."' administrador='".$adminUsuario."', avatar='".$avatarNome."' WHERE id =".$where;
 					}else{
-						$query = "UPDATE `usuarios` SET nome='".$nome."', email='".$email."', data_registro='".$data."' administrador='".$adminUsuario."', avatar='".$avatarUsuario."' WHERE id =".$where;
+						$query = "UPDATE `usuarios` SET nome='".$nome."', email='".$email."', data_registro='".$data."' administrador='".$adminUsuario."', avatar='".$avatarNome."' WHERE id =".$where;
 					}
 					if (!empty($where)) {
 						$executar = mysqli_query($conexao, $query);

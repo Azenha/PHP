@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Jul-2021 às 21:18
+-- Tempo de geração: 15-Jul-2021 às 20:25
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 8.0.7
 
@@ -29,6 +29,7 @@ USE `senac_noite`;
 -- Estrutura da tabela `paginas`
 --
 
+DROP TABLE IF EXISTS `paginas`;
 CREATE TABLE IF NOT EXISTS `paginas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(255) NOT NULL,
@@ -59,14 +60,15 @@ INSERT INTO `paginas` (`id`, `titulo`, `descricao`, `meta_descricao`, `publicado
 -- Estrutura da tabela `usuarios`
 --
 
+DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `senha` varchar(255) NOT NULL,
   `data_registro` date NOT NULL,
-  `administrador` tinyint(1) NOT NULL,
-  `avatar` varchar(250) NOT NULL,
+  `administrador` int(1) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
