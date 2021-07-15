@@ -3,21 +3,26 @@ if (isset($_SESSION['ativa'])): ?>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="css/admin.css">
+<link rel="stylesheet" type="text/css" href="css/usuarios.css">
+<link rel="stylesheet" type="text/css" href="css/paginas.css">
 	<title>Painel ADMIN</title>
 </head>
 <body>
-	<h1>Área Administrativa</h1>
+<img src="css/phplogo.svg" alt="logotipo PHP" class="logo" />
+	<h1 class='titleprincipal'>Área Administrativa</h1>
+
 	<?php 
 		$tabela = "usuarios";
 		$where = "id = ".$_SESSION['id'];
 		$userLogado = resultado($conexao, $tabela, $where);		
 	?>
-	<h2>Bem vindo, <?php echo $userLogado['nome']; ?></h2>
+	<h2 class='admsecondtitle' >Bem vindo, <?php echo $userLogado['nome']; ?></h2>
 		<?php include "template/menu.php"; ?>
 	<hr>
 	<div>		
-		<h1>Gerenciador de Páginas</h1>
-		<a href="pagina_form.php">Inserir Nova Página</a>
+		<h1 class='admsecondtitle' >Gerenciador de Páginas</h1>
+		<a class='linkmenu' href="pagina_form.php">Inserir Nova Página</a>
 
 		<?php if (isset($_GET['pagina_id'])) {
 			$where = "id = ".$_GET['pagina_id'];
@@ -35,7 +40,7 @@ if (isset($_SESSION['ativa'])): ?>
 				deletar($conexao, 'paginas', $_POST['id']);
 			}
 		?>		
-		<table border="1">
+		<table class='tabelasadmin' border="1">
 			<thead>
 				<tr>
 					<th>Titulo</th>
@@ -63,8 +68,8 @@ if (isset($_SESSION['ativa'])): ?>
 						</td>
 						<td><?php echo $pagina['data_cadastro']; ?></td>
 						<td>			
-							<a href="paginas.php?pagina_id=<?php echo $pagina['id']; ?>">Deletar</a>							
-							 - <a href="pagina_form.php?pagina_id=<?php echo $pagina['id']; ?>">Editar</a>
+							<a class='linkinterno' href="paginas.php?pagina_id=<?php echo $pagina['id']; ?>">Deletar</a>							
+							 - <a class='linkinterno' href="pagina_form.php?pagina_id=<?php echo $pagina['id']; ?>">Editar</a>
 						</td>
 					</tr>
 				<?php } ?>

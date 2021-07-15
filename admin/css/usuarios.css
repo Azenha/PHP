@@ -13,12 +13,15 @@
     color:#F2F2F2; 
     cursor: pointer;
 
+}
 
+.linkmenu:hover{
+    color:#8892BF;
 }
 
 .logo {
-    width: 100px;
-    margin-left: 50%;
+    width: 80px;
+    margin-left: 48%;
     margin-top: 15px;  
 }
 
