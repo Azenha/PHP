@@ -114,8 +114,10 @@ if (isset($_SESSION['ativa'])): ?>
 						<td>
 							<?php if ($_SESSION['id'] == $usuario['id']) { ?>
 								Seu usuário
+							<?php } elseif (!empty($_SESSION['admin'])) { ?>
+								<a class='linkinterno' href="usuario_delete.php?usuario_id=<?php echo $usuario['id']; ?>">Deletar</a>
 							<?php } else { ?>
-							<a class='linkinterno' href="usuario_delete.php?usuario_id=<?php echo $usuario['id']; ?>">Deletar</a>
+							<p>Sem acesso</p>
 							<?php } ?>
 							 - <a class='linkinterno' href="usuarios.php?usuario_id=<?php echo $usuario['id']; ?>">Editar</a>
 						</td>

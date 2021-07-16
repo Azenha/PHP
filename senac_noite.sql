@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Jul-2021 às 20:25
+-- Tempo de geração: 16-Jul-2021 às 21:11
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 8.0.7
 
@@ -30,8 +30,8 @@ USE `senac_noite`;
 --
 
 DROP TABLE IF EXISTS `paginas`;
-CREATE TABLE IF NOT EXISTS `paginas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `paginas` (
+  `id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `descricao` text NOT NULL,
   `meta_descricao` text NOT NULL,
@@ -39,20 +39,19 @@ CREATE TABLE IF NOT EXISTS `paginas` (
   `categoria` varchar(255) NOT NULL,
   `data_cadastro` date NOT NULL,
   `imagem` varchar(255) NOT NULL,
-  `link` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+  `link` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `paginas`
 --
 
 INSERT INTO `paginas` (`id`, `titulo`, `descricao`, `meta_descricao`, `publicado`, `categoria`, `data_cadastro`, `imagem`, `link`) VALUES
-(1, 'Serviços', '<p>Um <strong>novo </strong>texto.</p>\r\n<ul>\r\n<li>Teste</li>\r\n<li>Teste dois</li>\r\n<li>Teste 3</li>\r\n</ul>', 'testando a meta', 1, 'Páginas', '2021-06-25', '', 'servicos'),
+(1, 'Dúvidas', '<p>Um <strong>novo </strong>texto.</p>\\r\\n<ul>\\r\\n<li>Teste</li>\\r\\n<li>Teste dois</li>\\r\\n<li>Teste 3</li>\\r\\n</ul>', 'testando a meta', 1, 'Páginas', '2021-06-25', '', 'servicos'),
 (3, 'Novo titulo', '<p>Nova Descri</p>', 'Meta Nova', 1, 'Notícias', '2021-06-30', 'interrogacao.png', 'erer'),
 (4, 'Quem Somos', 'Testando', 'teste', 1, 'Notícias', '2021-07-25', '', ''),
-(7, 'Teste', '<p>teste</p>', 'efre', 1, 'Páginas', '2021-07-01', 'capa-udemy.png', 'empresa'),
-(8, 'Minha Empresa', '<p>Teste de GOOGLE ADS.</p>', 'ere', 1, 'Páginas', '2021-07-02', 'ads-google.png', 'empresa');
+(7, 'Códigos', '<p> Códigos </p>', 'efre', 1, 'Páginas', '2021-07-01', '', 'empresa'),
+(8, 'Quem somos', '<p>Teste de GOOGLE ADS.</p>', 'ere', 1, 'Páginas', '2021-07-02', 'ads-google.png', 'empresa');
 
 -- --------------------------------------------------------
 
@@ -61,26 +60,57 @@ INSERT INTO `paginas` (`id`, `titulo`, `descricao`, `meta_descricao`, `publicado
 --
 
 DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
   `nome` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `senha` varchar(255) NOT NULL,
   `data_registro` date NOT NULL,
   `administrador` int(1) NOT NULL,
-  `avatar` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+  `avatar` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `data_registro`, `administrador`, `avatar`) VALUES
-(2, 'susana', 'susana@email.com', '2e6f9b0d5885b6010f9167787445617f553a735f', '2021-05-17', 0, ''),
-(9, 'Pri do Prado', 'pri@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '2021-06-18', 0, ''),
-(10, 'Fernanda', 'fernanda@email.com', '2e6f9b0d5885b6010f9167787445617f553a735f', '2021-06-18', 0, ''),
-(12, 'admin', 'admin@email.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', '2021-07-13', 1, '');
+(2, 'susana', 'susana@email.com', '2e6f9b0d5885b6010f9167787445617f553a735f', '2021-05-17', 0, 'person.png'),
+(9, 'Pri', 'pri@gmail.com', '8cb2237d0679ca88db6464eac60da96345513964', '2021-06-18', 0, 'person.png'),
+(10, 'Fe', 'fernanda@email.com', '2e6f9b0d5885b6010f9167787445617f553a735f', '2021-06-18', 0, 'person.png'),
+(12, 'admin', 'admin@email.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', '2021-07-13', 1, 'person.png');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `paginas`
+--
+ALTER TABLE `paginas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `paginas`
+--
+ALTER TABLE `paginas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

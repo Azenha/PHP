@@ -67,8 +67,12 @@ if (isset($_SESSION['ativa'])): ?>
 							?>
 						</td>
 						<td><?php echo $pagina['data_cadastro']; ?></td>
-						<td>			
-							<a class='linkinterno' href="paginas.php?pagina_id=<?php echo $pagina['id']; ?>">Deletar</a>							
+						<td>
+							<?php if (!empty($_SESSION['admin'])) { ?>			
+							<a class='linkinterno' href="paginas.php?pagina_id=<?php echo $pagina['id']; ?>">Deletar</a>
+							<?php } else { ?>
+								<p>Sem acesso</p>
+							<?php } ?>
 							 - <a class='linkinterno' href="pagina_form.php?pagina_id=<?php echo $pagina['id']; ?>">Editar</a>
 						</td>
 					</tr>

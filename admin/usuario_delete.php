@@ -1,5 +1,5 @@
 <?php require_once "../config.php";session_start();
-if (isset($_SESSION['ativa'])): ?>
+if ((isset($_SESSION['ativa']))&&(!empty($_SESSION['admin']))): ?>
 <!DOCTYPE html>
 <html>
 <head>

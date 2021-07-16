@@ -25,7 +25,7 @@ function logar($conexao){
 				session_start();
 				$_SESSION['ativa'] = TRUE;
 				$_SESSION['id'] = $usuario['id'];
-				$_SESSION['admin'] = $usuario['admin'];
+				$_SESSION['admin'] = $usuario['administrador'];
 				header("location:index.php");
 
 			}else{
