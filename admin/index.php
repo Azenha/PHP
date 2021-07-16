@@ -4,11 +4,15 @@ if (isset($_SESSION['ativa'])): ?>
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< Updated upstream
 <link rel="stylesheet" type="text/css" href="css/admin.css">
 <link rel="stylesheet" type="text/css" href="css/usuarios.css">
 <link rel="stylesheet" type="text/css" href="css/paginas.css">
+=======
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
+>>>>>>> Stashed changes
 	<title class="tituloPainel"> Painel ADMIN</title>
-	
+
 </head>
 <body>
 <img src="css/phplogo.svg" alt="logotipo PHP" class="logo" />

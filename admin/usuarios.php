@@ -8,14 +8,22 @@ if (isset($_SESSION['ativa'])): ?>
 	<title>Painel ADMIN</title>
 </head>
 <body>
+<<<<<<< Updated upstream
 <img src="css/phplogo.svg" alt="logotipo PHP" class="logo" />
 	<h1 class='admtitle'>Área Administrativa</h1>
+=======
+	<h1 class='admtitle'> Área Administrativa </h1>
+>>>>>>> Stashed changes
 	<?php 
 		$tabela = "usuarios";
 		$where = "id = ".$_SESSION['id'];
 		$userLogado = resultado($conexao, $tabela, $where);		
 	?>
+<<<<<<< Updated upstream
 	<h2 class='admsecondtitle'>Bem vindo, <?php echo $userLogado['nome']; ?></h2>
+=======
+	<h2 class='admtitle'>Bem vindo, <?php echo $userLogado['nome']; ?></h2>
+>>>>>>> Stashed changes
 
 	<?php include "template/menu.php"; ?>
 

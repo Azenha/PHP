@@ -22,8 +22,6 @@ body{
 
 }
 
-h1{text-align: center}
-
 .form-login{
     max-width: 250px;
     margin: 0 auto;
@@ -56,3 +54,4 @@ h1{text-align: center}
     justify-content: center;
     align-items: center;
 }
+
