@@ -3,6 +3,8 @@
 <html>
 <head>
 	<title>Aula 7 - Bem Vindo</title>
+	<link rel="stylesheet" type="text/css" href="css/stylo.css">
+
 	<?php include "layout/head.php"; ?>
 </head>
 <body>
@@ -22,7 +24,7 @@
 
 
 		</div>		
-		<?php include_once "layout/lateral.php"; ?>					
+			
 	</main>
 	<footer>
 		<?php include "layout/footer.php"; ?>	
