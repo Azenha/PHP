@@ -1,4 +1,5 @@
-<p>Todos os Direitos Reservados</p>
+<p>Todos os Direitos Reservados </p>
+<p> Diogo, Henrique, Leonardo, Marcelo, Marja e Matheus </p> 
 
 	<?php if(!isset($lateral)): ?>
 		<script type="text/javascript">
