@@ -2,7 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Aula 7 - Bem Vindo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/stylo.css">
+
+	<title>PHP Page</title>
 	<?php include "layout/head.php"; ?>
 </head>
 <body>
@@ -14,9 +19,10 @@
 
 	<main>
 		<div class="conteudo">
-			<h1>Bem Vindo</h1>
-			<p>Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis. Detraxit consequat et quo num tendi nada. In elementis mé pra quem é amistosis quis leo. Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.</p>
-			<p>Viva Forevis aptent taciti sociosqu ad litora torquent. Atirei o pau no gatis, per gatis num morreus. Si u mundo tá muito paradis? Toma um mé que o mundo vai girarzis! Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl.</p>
+			<h1>Bem Vindos Devs <link rel="stylesheet" type="text/css" href="css/stylo.css"></h1>
+			<br>
+			<p> Página dedicada aos programadores e programadoras que já trabalharam com PHP.</p>
+			<p> Venha saber as novidades, compartilhar códigos, bugs e histórias de  deploys <br> as sextas-feiras com a linguagem mais polêmica da área tech. </p>
 		</div>
 		
 			<?php include_once "layout/lateral.php"; ?>	
